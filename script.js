@@ -72,3 +72,4 @@ submit.addEventListener('click', function () {
     result.textContent = `You didn't chose anything 😥`;
   }
 });
+//

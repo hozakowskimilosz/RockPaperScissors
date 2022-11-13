@@ -3,40 +3,40 @@
 const rock = document.querySelector('.rock');
 const paper = document.querySelector('.paper');
 const scissors = document.querySelector('.scissors');
+let playerChoice = '';
 
 const submit = document.querySelector('.submit');
 const result = document.querySelector('.result');
 const thinking = document.querySelector('.thinking');
-let choice;
 
 rock.addEventListener('click', function () {
-  choice = 'Rock';
+  playerChoice = 'Rock';
   rock.style.backgroundColor = '#5fe42e';
   paper.style.backgroundColor = 'white';
   scissors.style.backgroundColor = 'white';
 });
 
 paper.addEventListener('click', function () {
-  choice = 'Paper';
+  playerChoice = 'Paper';
   paper.style.backgroundColor = '#5fe42e';
   rock.style.backgroundColor = 'white';
   scissors.style.backgroundColor = 'white';
 });
 
 scissors.addEventListener('click', function () {
-  choice = 'Scissors';
+  playerChoice = 'Scissors';
   scissors.style.backgroundColor = '#5fe42e';
   rock.style.backgroundColor = 'white';
   paper.style.backgroundColor = 'white';
 });
 
 submit.addEventListener('click', function () {
-  let playerChoice = choice;
-
   const moves = ['Rock', 'Paper', 'Scissors'];
   let computerChoice = moves[Math.trunc(Math.random() * 3)];
 
+  //SOME OPTION SELECTED
   if (playerChoice !== '') {
+    //DISPLAYING COMPUTER MESSAGES
     if (computerChoice === 'Rock') {
       thinking.textContent = 'Rock 🪨';
     } else if (computerChoice === 'Paper') {
@@ -44,7 +44,9 @@ submit.addEventListener('click', function () {
     } else {
       thinking.textContent = 'Scissors ✂️';
     }
+    //TIE
     if (playerChoice === computerChoice) result.textContent = 'Tie 👔';
+    //INDIVIDUAL CASES
     else if (playerChoice === 'Rock') {
       if (computerChoice === 'Paper') {
         result.textContent = 'You lost 😥';
@@ -64,7 +66,9 @@ submit.addEventListener('click', function () {
         result.textContent = 'You won 🎉';
       }
     }
-  } else {
+  }
+  //NO OPTION SELECTED
+  else {
     result.textContent = `You didn't chose anything 😥`;
   }
 });

@@ -7,31 +7,31 @@ const scissors = document.querySelector('.scissors');
 const submit = document.querySelector('.submit');
 const result = document.querySelector('.result');
 const thinking = document.querySelector('.thinking');
-const choice = document.querySelector('.choice');
+let choice;
 
 rock.addEventListener('click', function () {
-  choice.textContent = 'Rock';
+  choice = 'Rock';
   rock.style.backgroundColor = '#5fe42e';
   paper.style.backgroundColor = 'white';
   scissors.style.backgroundColor = 'white';
 });
 
 paper.addEventListener('click', function () {
-  choice.textContent = 'Paper';
+  choice = 'Paper';
   paper.style.backgroundColor = '#5fe42e';
   rock.style.backgroundColor = 'white';
   scissors.style.backgroundColor = 'white';
 });
 
 scissors.addEventListener('click', function () {
-  choice.textContent = 'Scissors';
+  choice = 'Scissors';
   scissors.style.backgroundColor = '#5fe42e';
   rock.style.backgroundColor = 'white';
   paper.style.backgroundColor = 'white';
 });
 
 submit.addEventListener('click', function () {
-  let playerChoice = choice.textContent;
+  let playerChoice = choice;
 
   const moves = ['Rock', 'Paper', 'Scissors'];
   let computerChoice = moves[Math.trunc(Math.random() * 3)];
